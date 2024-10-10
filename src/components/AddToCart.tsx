@@ -1,28 +1,44 @@
-import { Flex, Text } from "@chakra-ui/react";
-import CartIcon from "../app/Assets/icon-add-to-cart.svg";
+import { Button, Flex, Text } from "@chakra-ui/react";
+import CartIcon from "../app/assets/icon-add-to-cart.svg";
 import Image from "next/image";
 
-export default function AddToCart() {
+export default function AddToCart({
+  isClickedProduct,
+  handleClick,
+  ProductID,
+}: any) {
   return (
     <Flex
+      //   display={isOrderActive ? "none" : "flex"}
       direction={"row"}
-      gap={"auto"}
       position="absolute"
-      bottom={{ base: "-13px", md: "-20px" }}
+      bottom={{ base: "-13px", md: "-17px" }}
       left="50%"
       transform="translateX(-50%)"
-      width={{ base: "90px", md: "150px" }}
-      height={{ base: "26px", md: "40px" }}
-      border={"1px solid red"}
+      width={{ base: "90px", md: "100px" }}
+      height={{ base: "26px", md: "30px" }}
       alignItems={"center"}
-      justifyContent={"space-between"}
-      padding={{ base: "5px 10px", md: "10px 25px" }}
-      borderRadius={"full"}
     >
-      <Image src={CartIcon} width={"18"} alt="Cart Icon" />
-      <Text fontSize={{ base: "8px", md: "14px" }} fontWeight={"600"}>
+      <Button
+        display={isClickedProduct ? "none" : "flex"}
+        id={ProductID}
+        alignItems={"center"}
+        gap={"5px"}
+        fontWeight={"600"}
+        fontSize={{ base: "8px", md: "10px" }}
+        height={"100%"}
+        width={"100%"}
+        bg={"white"}
+        padding={{ base: "7px 10px", md: "9px 13px" }}
+        borderRadius={"full"}
+        border={"1px solid hsl(7, 20%, 60%)"}
+        colorScheme="gold"
+        color={"black"}
+        onClick={handleClick}
+      >
+        <Image src={CartIcon} width={"18"} alt="Cart Icon" />
         Add to Cart
-      </Text>
+      </Button>
     </Flex>
   );
 }
