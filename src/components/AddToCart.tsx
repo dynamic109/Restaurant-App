@@ -1,5 +1,5 @@
 import { Button, Flex } from "@chakra-ui/react";
-import CartIcon from "../app/assets/icon-add-to-cart.svg";
+import CartIcon from "@/app/assets/icon-add-to-cart.svg";
 import Image from "next/image";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
