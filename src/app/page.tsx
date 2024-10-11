@@ -1,3 +1,4 @@
+import Cart from "@/components/Cart";
 import ProductCard from "@/components/ProductCard";
 import { Flex, Heading } from "@chakra-ui/react";
 
@@ -18,8 +19,8 @@ export default function () {
         <ProductCard />
       </Flex>
 
-      <Flex>
-        <Heading>Cart Items here!!!</Heading>
+      <Flex w={{ base: "100%", md: "100%", lg: "40%" }}>
+        <Cart />
       </Flex>
     </Flex>
   );
