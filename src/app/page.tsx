@@ -7,7 +7,7 @@ export default function () {
     <Flex
       direction={{ base: "column", md: "row" }}
       bg={"hsl(20, 50%, 98%)"}
-      p={"50px"}
+      p={{base: "50px 40px", md:"50px"}}
       justifyContent={{ base: "center", md: "flex-start" }}
     >
       <Flex
