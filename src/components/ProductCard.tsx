@@ -6,13 +6,37 @@ import { useState } from "react";
 
 export default function ProductFlex() {
   const [isOrderActive, setIsOrderActive] = useState(null);
+  const [orderAmounts, setOrderAmounts] = useState<{ [key: string]: number }>(
+    {}
+  );
 
   const handleClick = (event: any) => {
     const clickedProduct = event.currentTarget.id;
     setIsOrderActive((prevOrder) =>
-      clickedProduct === prevOrder ? null : clickedProduct
+      prevOrder === clickedProduct ? null : clickedProduct
     );
-    console.log(isOrderActive);
+  };
+
+  const Increment = (id: string) => {
+    setOrderAmounts((prevState) => {
+      const newAmount = (prevState[id] || 0) + 1;
+      console.log(newAmount, id);
+      return {
+        ...prevState,
+        [id]: newAmount,
+      };
+    });
+  };
+
+  const Decrement = (id: string) => {
+    setOrderAmounts((prevState) => {
+      const newAmount = Math.max((prevState[id] || 0) - 1, 0)
+      console.log(newAmount, id);
+      return {
+        ...prevState,
+        [id]: newAmount,
+      };
+    });
   };
 
   return (
@@ -41,6 +65,7 @@ export default function ProductFlex() {
               backgroundImage={`url(/app/assets/${data.image.mobile}.jpg)`}
               bgPosition={"center"}
               backgroundSize="cover"
+              border={isClickedProduct ? "2px solid hsl(14, 86%, 42%)" : "none"}
             >
               <AddToCart
                 isOrderActive={isOrderActive}
@@ -48,6 +73,9 @@ export default function ProductFlex() {
                 handleClick={handleClick}
                 ProductID={data.category}
                 isClickedProduct={isClickedProduct}
+                orderAmount={orderAmounts}
+                Increment={Increment}
+                Decrement={Decrement}
               />
             </Box>
             <Stack mt={"25px"}>
