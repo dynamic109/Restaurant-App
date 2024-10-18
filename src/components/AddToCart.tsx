@@ -58,13 +58,16 @@ export default function AddToCart({
         border={"1px solid hsl(7, 20%, 60%)"}
         colorScheme="white"
         color={"white"}
-        // onClick={handleClick}
       >
         <MinusIcon
           boxSize={4}
           border={"1px solid white"}
           p={"2px"}
           borderRadius={"50%"}
+          _hover={{
+            background: "white",
+            color: "hsl(14, 86%, 42%)",
+          }}
           onClick={() => Decrement(ProductID)}
         />
 
@@ -77,6 +80,10 @@ export default function AddToCart({
           border={"1px solid white"}
           p={"2px"}
           borderRadius={"50%"}
+          _hover={{
+            background: "white",
+            color: "hsl(14, 86%, 42%)",
+          }}
           onClick={() => {
             Increment(ProductID);
           }}

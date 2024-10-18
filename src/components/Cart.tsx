@@ -1,17 +1,8 @@
-import {
-  Button,
-  Divider,
-  Flex,
-  Heading,
-  Stack,
-  Text,
-  Icon,
-  Image,
-} from "@chakra-ui/react";
+import { Button, Divider, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { GiTreeDoor } from "react-icons/gi";
 import { ImCancelCircle } from "react-icons/im";
 
-export default function Cart() {
+export default function Cart({ isOrderActive }: any) {
   return (
     <Flex
       w={"100%"}
@@ -29,13 +20,15 @@ export default function Cart() {
       </Heading>
       <Flex justifyContent={"space-between"} alignItems={"center"}>
         <Stack direction={"column"}>
-          <Text fontWeight={700}>Order Name</Text>
+          <Text fontWeight={700}>{isOrderActive}</Text>
           <Stack direction={"row"}>
             <Text color={"hsl(14, 86%, 42%)"} fontWeight={600}>
               1x
             </Text>
-            <Text>@ $84</Text>
-            <Text fontWeight={600}>$84</Text>
+            <Text color={"hsl(7, 20%, 60%)"}>@ $84</Text>
+            <Text color={"hsl(12, 20%, 44%)"} fontWeight={600}>
+              $84
+            </Text>
           </Stack>
         </Stack>
         <ImCancelCircle width={"35px"} height={"215px"} />
